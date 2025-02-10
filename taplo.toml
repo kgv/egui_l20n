@@ -1,0 +1,9 @@
+[formatting]
+reorder_arrays = true
+reorder_keys = true
+
+# https://doc.rust-lang.org/cargo/reference/manifest.html
+[[rule]]
+include = ["**/Cargo.toml"]
+keys = ["package"]
+formatting = { reorder_keys = false }

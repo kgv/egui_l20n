@@ -1,0 +1,4 @@
+= egui l20n
+
+link:https://crates.io/crates/egui[Egui] localization library with
+link:https://crates.io/crates/fluent[Fluent].
