@@ -12,13 +12,14 @@ impl Localization {
         Localization(bundle)
     }
 
-    pub fn with_sources(&mut self, sources: &[&str]) {
+    pub fn with_sources(mut self, sources: &[&str]) -> Self {
         for &source in sources {
-            self.with_source(source);
+            self.add_source(source);
         }
+        self
     }
 
-    pub fn with_source(&mut self, source: &str) {
+    pub fn add_source(&mut self, source: &str) {
         let resource = match FluentResource::try_new(source.to_owned()) {
             Ok(resource) => resource,
             Err((resource, errors)) => {

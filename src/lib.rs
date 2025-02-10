@@ -1,4 +1,5 @@
 pub use self::{context::ContextExt, localization::Localization, ui::UiExt};
+pub use unic_langid::LanguageIdentifier;
 #[cfg(feature = "macros")]
 pub use unic_langid::langid;
 

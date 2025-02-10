@@ -19,6 +19,8 @@ pub trait UiExt {
 
     fn localize(&self, key: &str) -> String;
 
+    fn try_localize(&self, key: &str) -> Option<String>;
+
     fn locale_button(&mut self) -> Response;
 }
 
@@ -49,7 +51,11 @@ impl UiExt for Ui {
     }
 
     fn localize(&self, key: &str) -> String {
-        self.localization().content(key).unwrap_or_default()
+        self.try_localize(key).unwrap_or_default()
+    }
+
+    fn try_localize(&self, key: &str) -> Option<String> {
+        self.localization().content(key)
     }
 
     fn locale_button(&mut self) -> Response {
