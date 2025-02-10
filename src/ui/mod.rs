@@ -1,6 +1,7 @@
 use self::locale_button::LocaleButton;
 use crate::{ContextExt, Localization};
 use egui::{Response, Ui};
+use fluent_content::Content;
 use std::sync::Arc;
 use unic_langid::LanguageIdentifier;
 
@@ -15,6 +16,8 @@ pub trait UiExt {
     fn localization(&self) -> Arc<Localization>;
 
     fn set_localization(&self, language_identifier: LanguageIdentifier, localization: Localization);
+
+    fn localize(&self, key: &str) -> String;
 
     fn locale_button(&mut self) -> Response;
 }
@@ -43,6 +46,10 @@ impl UiExt for Ui {
     ) {
         self.ctx()
             .set_localization(language_identifier, localization)
+    }
+
+    fn localize(&self, key: &str) -> String {
+        self.localization().content(key).unwrap_or_default()
     }
 
     fn locale_button(&mut self) -> Response {
