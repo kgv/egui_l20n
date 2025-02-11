@@ -1,7 +1,7 @@
 use crate::{ID_SOURCE, Localization};
-use egui::{Context, Id, ahash::HashMap};
+use egui::{Context, Id};
 use fluent_content::Content as _;
-use std::sync::Arc;
+use std::{collections::HashMap, sync::Arc};
 use unic_langid::LanguageIdentifier;
 
 /// Localizations
@@ -56,7 +56,8 @@ impl ContextExt for Context {
         let language_identifier = self.language_identifier();
         self.data_mut(|data| {
             data.get_temp_mut_or_default::<Localizations>(Id::new(ID_SOURCE).with("Localizations"))
-                [&language_identifier]
+                .entry(language_identifier)
+                .or_default()
                 .clone()
         })
     }
