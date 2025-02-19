@@ -1,5 +1,5 @@
 use crate::UiExt as _;
-use egui::Response;
+use egui::{Response, TextWrapMode};
 
 /// Extension methods for [`Response`]
 pub trait ResponseExt {
@@ -11,12 +11,14 @@ pub trait ResponseExt {
 impl ResponseExt for Response {
     fn on_disabled_hover_localized(self, key: &str) -> Response {
         self.on_disabled_hover_ui(|ui| {
+            ui.style_mut().wrap_mode = Some(TextWrapMode::Extend);
             ui.label(ui.localize(key));
         })
     }
 
     fn on_hover_localized(self, key: &str) -> Response {
         self.on_hover_ui(|ui| {
+            ui.style_mut().wrap_mode = Some(TextWrapMode::Extend);
             ui.label(ui.localize(key));
         })
     }
