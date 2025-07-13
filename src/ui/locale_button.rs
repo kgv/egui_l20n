@@ -44,7 +44,7 @@ impl Widget for LocaleButton {
                 ui.set_language_identifier(current_value);
             }
             if response.clicked() {
-                ui.close_menu();
+                ui.close();
             }
         })
         .response
