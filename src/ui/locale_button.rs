@@ -1,6 +1,6 @@
 use crate::UiExt as _;
 use egui::{Response, RichText, Sense, TextStyle, Ui, Widget};
-use egui_phosphor::regular::TRANSLATE;
+use egui_phosphor::regular::{GLOBE, TRANSLATE};
 
 /// Locale button
 pub struct LocaleButton {
