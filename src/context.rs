@@ -1,11 +1,12 @@
 use crate::{ID_SOURCE, Localization};
 use egui::{Context, Id};
 use fluent_content::Content as _;
-use std::{collections::HashMap, sync::Arc};
+use indexmap::IndexMap;
+use std::sync::Arc;
 use unic_langid::LanguageIdentifier;
 
 /// Localizations
-type Localizations = HashMap<LanguageIdentifier, Arc<Localization>>;
+type Localizations = IndexMap<LanguageIdentifier, Arc<Localization>>;
 
 /// Extension methods for [`Context`]
 pub trait ContextExt {

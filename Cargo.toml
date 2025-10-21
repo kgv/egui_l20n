@@ -9,6 +9,7 @@ egui = { version = "0.32.3", default-features = false }
 egui-phosphor = "0.10.0"
 fluent = "0.16.1"
 fluent_content = "0.0.5"
+indexmap = "2.12.0"
 tracing = "0.1.41"
 unic-langid = { version = "0.9.6", features = ["macros"] }
 
