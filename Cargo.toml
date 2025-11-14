@@ -1,17 +1,19 @@
 [package]
 name = "egui_l20n"
-version = "0.3.0"
+version = "0.4.0"
 edition = "2024"
 
 [dependencies]
-eframe = { version = "0.32.3", default-features = false }
-egui = { version = "0.32.3", default-features = false }
+eframe = { version = "0.33.2", default-features = false }
+egui = { version = "0.33.2", default-features = false }
 egui-phosphor = "0.10.0"
-fluent = "0.16.1"
-fluent_content = "0.0.5"
+fluent = "0.17.0"
+fluent_content = { git = "https://github.com/kgv/fluent_content" }
 indexmap = "2.12.0"
 tracing = "0.1.41"
 unic-langid = { version = "0.9.6", features = ["macros"] }
+
+# fluent_content = "0.0.5"
 
 [features]
 default = []
