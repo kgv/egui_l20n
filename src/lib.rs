@@ -5,6 +5,10 @@ pub use unic_langid::langid;
 
 pub const ID_SOURCE: &str = "EguiL20n";
 
+pub mod prelude {
+    pub use crate::{ContextExt as _, Localization, ResponseExt as _, UiExt as _};
+}
+
 mod context;
 mod localization;
 mod response;
